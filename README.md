@@ -5,10 +5,13 @@ Follow Venues
 
 Built from [node-jwt-intro](https://github.com/cleechtech/node-jwt-intro) boilerplate
 
+scotch.io mapping tutorial: https://scotch.io/tutorials/making-mean-apps-with-google-maps-part-i?utm_content=buffer97d1f&utm_medium=social&utm_source=twitter.com&utm_campaign=buffer
 
 many to many default mongoose: http://stackoverflow.com/questions/11117854/many-to-many-mapping-with-mongoose
 
 also populate: http://mongoosejs.com/docs/populate.html
+
+mongoose-relationship plugin: https://github.com/sabymike/mongoose-relationship
 
 
 #### Getting started
