@@ -5,6 +5,12 @@ Follow Venues
 
 Built from [node-jwt-intro](https://github.com/cleechtech/node-jwt-intro) boilerplate
 
+
+many to many default mongoose: http://stackoverflow.com/questions/11117854/many-to-many-mapping-with-mongoose
+
+also populate: http://mongoosejs.com/docs/populate.html
+
+
 #### Getting started
 ```
 $ git clone <this_repo>
