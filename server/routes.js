@@ -5,6 +5,8 @@ var express = require('express'),
 	apiRouter = express.Router(),
 	User = require('./models/user'),
 	Venue = require('./models/venue'),
+	usersCtrl = require('./controllers/usersCtrl'),
+	venuesCtrl = require('./controllers/venuesCtrl'),
 	router = express.Router();
 
 module.exports = function(app){	
@@ -12,11 +14,7 @@ module.exports = function(app){
 
 	// Users
 	// all users
-	apiRouter.get('/users', utils.authenticate, function(req, res){
-		User.find({}, function(err, users){
-			res.json(users);
-		});
-	});
+	apiRouter.get('/users', utils.authenticate, usersCtrl.all);
 
 	// add user
 	apiRouter.post('/users', function(req, res){
@@ -57,8 +55,6 @@ module.exports = function(app){
 			email: req.body.email
 		}).select('_id email +password');
 
-		console.log(query);
-
 		query.exec(function(err, user){
 			if(err){
 				console.error(err);
@@ -66,7 +62,6 @@ module.exports = function(app){
 			}
 
 			if(!user){
-
 				res.json({ 
 					success: false, 
 					message: 'No user with that email'
@@ -102,6 +97,10 @@ module.exports = function(app){
 			}
 		});
 	});
+
+	// Venues
+	apiRouter.get('/venues', venuesCtrl.all);
+	apiRouter.post('/venues', venuesCtrl.add);
 
 	// angularjs catch all route
 	router.get('/*', function(req, res) {

@@ -2,7 +2,8 @@
 var app = angular.module('jwtintro', [
 	'ui.router',
 	'formly',
-	'formlyBootstrap'
+	'formlyBootstrap',
+	'geolocation'
 ], function($httpProvider){
 	// will add token to header of requests if token is present
 	$httpProvider.interceptors.push('authInterceptor');
@@ -26,6 +27,11 @@ app.config(function($stateProvider, $urlRouterProvider){
 			url: "/",
 			templateUrl: "templates/main.html",
 			controller: 'MainCtrl'
+		})
+		.state('addVenue', {
+			url: "/addVenue",
+			templateUrl: "templates/venues/add.html",
+			controller: 'VenuesCtrl'
 		})
 		.state('auth', {
 			abstract: true,

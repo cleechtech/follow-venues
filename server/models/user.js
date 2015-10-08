@@ -1,5 +1,6 @@
-var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
+var mongoose = require('mongoose'),
+    Schema = mongoose.Schema,
+    relationship = require("mongoose-relationship");
 
 // email, pwd are required
 // email must be unique
@@ -12,8 +13,12 @@ var userSchema = new Schema({
 	password: {type: String, required: true, select: false },
 	admin: Boolean,
 	created_at: {type: Date, default: Date.now},
-    updated_at: {type: Date, default: Date.now}
+    updated_at: {type: Date, default: Date.now},
+    following: [{ type: Schema.ObjectId, ref: "Venue", childPath: "followers" }]
 });
+
+// mongoose relationship plugin: https://github.com/sabymike/mongoose-relationship
+userSchema.plugin(relationship, { relationshipPathName: 'following' });
 
 // Sets the created_at parameter equal to the current time
 userSchema.pre('save', function(next){
