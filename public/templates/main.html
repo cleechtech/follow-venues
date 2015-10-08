@@ -1,0 +1,17 @@
+
+
+<div ng-include="'templates/navbar.html'"></div>
+
+<!-- Logged in homepages and not logged in homepages combined here -->
+<div class='row' ng-if='!user'>
+	<div class='jumbotron text-center'>
+		<h1>Welcome to the site</h1>
+	</div>
+</div>
+
+<div class='row' ng-if='user'>
+	<h3>All Users</h3>
+	<ol>
+		<li ng-repeat='user in users'>{{user.email}}</li>
+	</ol>
+</div>
