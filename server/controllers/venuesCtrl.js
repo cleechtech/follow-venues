@@ -7,9 +7,9 @@ module.exports = {
 		});
 	},
 	add: function(req, res, next){
-		var newVenue = new User({
+		var newVenue = new Venue({
 			name: req.body.name,
-			location: req.body.location
+			location: [req.body.longitude, req.body.latitude]
 		});
 
 		newVenue.save(function(err){
@@ -18,9 +18,8 @@ module.exports = {
 			// send token
 			res.json({
 				success: true,
-				message: 'Successfully added !',
-				token: token,
-				user: newUser
+				message: 'Successfully added!',
+				venue: newVenue
 			});
 		});
 	}

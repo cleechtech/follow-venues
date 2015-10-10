@@ -1,20 +1,28 @@
 
 <div class='row'>
 
-	<h1>Add a Venue</h1>
-
-	<div class="form-group">
-		<label for="name">Name</label>
-		<input type='text' class='form-control' placeholder='Name of Venue' ng-model="newVenue.name">
+<div class="col-md-6 col-md-offset-3">
+	<div class="page-header">
+		<h1><span class="glyphicon glyphicon-tower"></span> Add a Venue</h1>
 	</div>
-	<div class="form-group">
-        <label for="latitude">Latitude</label>
-        <input type="text" class="form-control" id="latitude" value="39.500" ng-model="newVenue.latitude" readonly>
-    </div>
-    <div class="form-group">
-        <label for="longitude">Longitude</label>
-        <input type="text" class="form-control" id="longitude" value="-98.350" ng-model="newVenue.longitude" readonly>
-    </div>
 
-	<div class='btn btn-success'>Submit</div>
+	<!-- Alerts -->
+	<div class="alert alert-danger" ng-if='errMessage'>{{errMessage}}</div>
+	<div class="alert alert-success" ng-if='successMessage'>{{successMessage}}</div>
+
+	<form ng-submit='addVenue()'>
+		<div class="form-group">
+			<label for="name">Name</label>
+			<input type='text' class='form-control' placeholder='Name of Venue' ng-model="newVenue.name">
+		</div>
+		<div class="form-group">
+		    <label for="latitude">Latitude</label>
+		    <input type="text" class="form-control" id="latitude" value="39.500" ng-model="newVenue.latitude">
+		</div>
+		<div class="form-group">
+		    <label for="longitude">Longitude</label>
+		    <input type="text" class="form-control" id="longitude" value="-98.350" ng-model="newVenue.longitude">
+		</div>
+		<button type='submit' class='btn btn-success'>Submit</button>
+	</form>
 </div>
