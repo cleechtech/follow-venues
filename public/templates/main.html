@@ -12,11 +12,23 @@
 <div class='row' ng-if='user'>
 	<div class='col-sm-3'>
 		<h3>All Users</h3>
-		<ol>
-			<li ng-repeat='user in users'>{{user.email}}</li>
-		</ol>
+		<ul class="list-group">
+			<li class="list-group-item" ng-repeat='user in users'>
+				<span class="badge">{{user.following.length}}</span>
+				{{user.email}}
+			</li>
+		</ul>
 	</div>
-	<div class='col-sm-9 text-center'>
+	<div class='col-sm-3 col-sm-offset-1'>
+		<h3>All Venues</h3>
+		<ul class="list-group">
+			<li class="list-group-item" ng-repeat='venue in venues' ui-sref='venue({ name: venue.name })'>
+				<span class="badge">{{venue.followers.length}}</span>
+				{{venue.name}}
+			</li>
+		</ul>
+	</div>
+	<div class='col-sm-3 col-sm-offset-1'>
 		<div class='btn btn-default' ui-sref='addVenue'>Add Venue</div>
 	</div>
 </div>

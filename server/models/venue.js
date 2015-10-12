@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 
 var venueSchema = new mongoose.Schema({
-	name: { type: String, required: true },
+	name: { type: String, required: true, unique: true },
 	location: { type: [Number], required: true }, // [Long, Lat]
 	created_at: { type: Date, default: Date.now },
     updated_at: { type: Date, default: Date.now },

@@ -28,6 +28,11 @@ app.config(function($stateProvider, $urlRouterProvider){
 			templateUrl: "templates/main.html",
 			controller: 'MainCtrl'
 		})
+		.state('venue', {
+			url: '/venues/:name',
+			templateUrl: 'templates/venues/venue.html',
+			controller: 'VenuesCtrl'
+		})
 		.state('addVenue', {
 			url: "/addVenue",
 			templateUrl: "templates/venues/add.html",

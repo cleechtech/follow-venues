@@ -1,6 +1,6 @@
 
-app.controller('VenuesCtrl', ['$scope', '$http', 'geolocation', 'API_URL', 
-	function($scope, $http, geolocation, API_URL){
+app.controller('VenuesCtrl', ['$scope', '$http', '$stateParams', 'geolocation', 'API_URL', 
+	function($scope, $http, $stateParams, geolocation, API_URL){
 	$scope.newVenue = {};
 	$scope.addVenue = function(){
 		$http.post(API_URL + 'venues', $scope.newVenue)
@@ -23,4 +23,8 @@ app.controller('VenuesCtrl', ['$scope', '$http', 'geolocation', 'API_URL',
 				console.error(err);
 			});
 	};
+
+	if($stateParams.venue){
+		$scope.venue = $stateParams.venue;
+	}
 }]);
