@@ -9,9 +9,9 @@ scotch.io mapping tutorial: https://scotch.io/tutorials/making-mean-apps-with-go
 
 many to many default mongoose: http://stackoverflow.com/questions/11117854/many-to-many-mapping-with-mongoose
 
-also populate: http://mongoosejs.com/docs/populate.html
-
 loading svg: https://github.com/jxnblk/loading
+
+tab navigation: http://tympanus.net/codrops/2014/09/02/tab-styles-inspiration/
 
 
 #### Getting started
