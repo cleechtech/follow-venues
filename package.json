@@ -28,7 +28,6 @@
     "jsonwebtoken": "^5.0.4",
     "method-override": "^2.3.3",
     "mongoose": "^4.0.5",
-    "mongoose-relationship": "^0.1.4",
     "morgan": "^1.6.1",
     "q": "^1.4.1"
   }

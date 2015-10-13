@@ -12,10 +12,10 @@ var app = angular.module('jwtintro', [
 app.run(function($rootScope, auth){
 	// if the user's data is in local storage
 	// show them as signed in
-	var user = auth.getUser();
+	var _user = auth.getUser();
 
-	if(user){
-		$rootScope.user = JSON.parse(user);
+	if(_user){
+		$rootScope.user = JSON.parse(_user);
 	}
 });
 

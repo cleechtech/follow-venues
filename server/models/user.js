@@ -1,12 +1,10 @@
-var mongoose = require('mongoose'),
-    Schema = mongoose.Schema,
-    relationship = require("mongoose-relationship");
+var mongoose = require('mongoose');
 
 // email, pwd are required
 // email must be unique
 // don't send password with requests
 
-var userSchema = new Schema({
+var userSchema = new mongoose.Schema({
 	firstName: {type: String },
 	lastName: {type: String },
 	email: {type: String, required: true, unique: true },
@@ -14,11 +12,8 @@ var userSchema = new Schema({
 	admin: Boolean,
 	created_at: {type: Date, default: Date.now},
     updated_at: {type: Date, default: Date.now},
-    following: [{ type: Schema.ObjectId, ref: "Venue", childPath: "followers" }]
+    follows: [ {type: mongoose.Schema.ObjectId, ref: 'Venue'} ]
 });
-
-// mongoose relationship plugin: https://github.com/sabymike/mongoose-relationship
-userSchema.plugin(relationship, { relationshipPathName: 'following' });
 
 // Sets the created_at parameter equal to the current time
 userSchema.pre('save', function(next){
@@ -29,5 +24,23 @@ userSchema.pre('save', function(next){
     }
     next();
 });
+
+// http://stackoverflow.com/questions/29504278/using-pull-in-mongoose-model
+userSchema.static('follow', function follow(userId, venueId, token, cb) {
+  var User = this;
+
+  // make sure token is valid
+  // ...
+
+  return User.findOneAndUpdate({_id: userId }, {$push: {follows: venueId}}, {new: true}).exec(cb);
+});
+
+// userSchema.static('unfollow', function unfollow(token, id, cb) {
+//   var User = this;
+
+//   // Returns a promise in Mongoose 4.X
+//   // or call cb if provided
+//   return User.findOneAndUpdate({token: token}, {$pull: {follows: {user: id}}}, {new: true}).exec(cb);
+// });
 
 module.exports = mongoose.model('User', userSchema);

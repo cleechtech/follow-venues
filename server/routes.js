@@ -99,6 +99,8 @@ module.exports = function(app){
 	});
 
 	// Venues
+	apiRouter.post('/follow/venue', venuesCtrl.follow);
+	apiRouter.get('/venues/:name', venuesCtrl.fetchOne);
 	apiRouter.get('/venues', venuesCtrl.all);
 	apiRouter.post('/venues', venuesCtrl.add);
 

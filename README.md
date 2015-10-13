@@ -11,7 +11,7 @@ many to many default mongoose: http://stackoverflow.com/questions/11117854/many-
 
 also populate: http://mongoosejs.com/docs/populate.html
 
-mongoose-relationship plugin: https://github.com/sabymike/mongoose-relationship
+loading svg: https://github.com/jxnblk/loading
 
 
 #### Getting started

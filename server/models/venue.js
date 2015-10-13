@@ -5,7 +5,7 @@ var venueSchema = new mongoose.Schema({
 	location: { type: [Number], required: true }, // [Long, Lat]
 	created_at: { type: Date, default: Date.now },
     updated_at: { type: Date, default: Date.now },
-    followers: [{ type: mongoose.Schema.ObjectId, ref: "User" }]
+    followers: [ {type: mongoose.Schema.ObjectId, ref: 'User' } ]
 });
 
 // Indexes this schema in 2dsphere format (critical for running proximity searches)
