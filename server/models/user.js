@@ -29,7 +29,7 @@ userSchema.pre('save', function(next){
 userSchema.static('follow', function follow(userId, venueId, token, cb) {
   var User = this;
 
-  // make sure token is valid
+  // make sure token is valid (or do this with route middleware)
   // ...
 
   return User.findOneAndUpdate({_id: userId }, {$push: {follows: venueId}}, {new: true}).exec(cb);

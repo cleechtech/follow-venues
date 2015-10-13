@@ -33,6 +33,11 @@ app.config(function($stateProvider, $urlRouterProvider){
 			templateUrl: 'templates/venues/venue.html',
 			controller: 'VenuesCtrl'
 		})
+		.state('user', {
+			url: '/users/:id',
+			templateUrl: 'templates/profile.html',
+			controller: 'VenuesCtrl'
+		})
 		.state('addVenue', {
 			url: "/addVenue",
 			templateUrl: "templates/venues/add.html",
